@@ -1,13 +1,13 @@
 val V = new {
-  val Scala = "3.0.0"
+  val Scala = "3.0.1"
 
-  val laminar         = "0.13.0"
-  val http4s          = "0.23.0-M1"
-  val sttp            = "3.3.4"
-  val circe           = "0.14.0-M7"
-  val decline         = "1.3.0"
+  val laminar         = "0.13.1"
+  val http4s          = "0.23.0"
+  val sttp            = "3.3.13"
+  val circe           = "0.14.1"
+  val decline         = "2.1.0"
   val organiseImports = "0.5.0"
-  val weaver          = "0.7.3"
+  val weaver          = "0.7.4"
 }
 
 scalaVersion := V.Scala
@@ -22,7 +22,7 @@ val Dependencies = new {
     libraryDependencies ++=
       Seq(
         "com.softwaremill.sttp.client3" %%% "core"    % V.sttp,
-        "com.softwaremill.sttp.client3" %%% "circe"   % V.sttp cross CrossVersion.for3Use2_13
+        "com.softwaremill.sttp.client3" %%% "circe"   % V.sttp
       ) ++ Seq("com.raquo"              %%% "laminar" % V.laminar)
   )
 
@@ -30,7 +30,7 @@ val Dependencies = new {
     libraryDependencies ++=
       http4sModules.map("org.http4s" %% _ % V.http4s) ++
         Seq(
-          "com.monovore" %% "decline" % V.decline cross CrossVersion.for3Use2_13 exclude ("org.typelevel", "cats-core_2.13")
+          "com.monovore" %% "decline" % V.decline
         )
   )
 
